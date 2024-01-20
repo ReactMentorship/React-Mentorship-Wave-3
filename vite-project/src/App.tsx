@@ -2,9 +2,14 @@ import './App.css'
 import User from './components/User';
 
 function App() {
+  let isLoggedIn = true
   return (
     <>
-      <User/>
+      {isLoggedIn ? (
+        <User/>
+      ) : (
+        <div className="login">Login Here!</div>
+      )}
     </>
   )
 }
