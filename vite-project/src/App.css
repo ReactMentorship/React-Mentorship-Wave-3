@@ -4,15 +4,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-.avatar {
-  display: flex;
-  justify-content: center;
-}
-.name {
-  color: black;
-}
-.card-container {
-  display: flex;
-  justify-content: center;
-}
