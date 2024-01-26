@@ -6,7 +6,12 @@ export default function User(props) {
     let user = props.userProfile
 
     return(
-        <ProfileCard name={user.name} email={user.email} phone={user.phone} address={user.address}></ProfileCard>
+        <>
+            {Object.keys(user).length > 0
+                ?<ProfileCard name={user.name} email={user.email} phone={user.phone} address={user.address}></ProfileCard>
+                :<p>User info is not available</p>
+            }
+        </>
     )
 }
 
