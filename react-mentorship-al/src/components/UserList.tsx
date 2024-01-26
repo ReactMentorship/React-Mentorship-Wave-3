@@ -19,5 +19,5 @@ export default function UserList(props) {
 }
 
 UserList.propTypes = {
-    userProfile: PropTypes.object
+    userProfile: PropTypes.array
 }
