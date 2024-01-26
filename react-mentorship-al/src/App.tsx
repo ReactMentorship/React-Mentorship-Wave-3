@@ -1,6 +1,8 @@
 import './App.css'
-import User from './components/UserList';
-import {useState, useEffect} from 'react';
+import UserList from './components/UserList';
+import {useState, useEffect, createContext} from 'react';
+
+export const UsersContext = createContext(null);
 
 function App() {
   const usersObject = [
@@ -12,10 +14,13 @@ function App() {
     if(Object.keys(usersList).length == 0){
       setUsersList(usersObject);
     }
-  },usersObject)
+  },usersObject);
+
   return (
     <>
-      <User userProfile={usersList}></User>
+      <UsersContext.Provider value={{ usersList, setUsersList }}>
+        <UserList></UserList>
+      </UsersContext.Provider>
     </>
   )
 }
