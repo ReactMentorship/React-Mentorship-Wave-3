@@ -1,13 +1,14 @@
-import ProfileCard from './profilecard';
+import ProfileCard from './ProfileCard';
 import PropTypes from 'prop-types';
 
 
-export default function User(props) {
-    let user = props.userProfile
+export default function UserList(props) {
+    let userList = props.userProfile;
+    let user = userList[0];
 
     return(
         <>
-            {Object.keys(user).length > 0
+            {Object.keys(userList).length > 0
                 ?<ProfileCard name={user.name} email={user.email} phone={user.phone} address={user.address}></ProfileCard>
                 :<p>User info is not available</p>
             }
@@ -15,6 +16,6 @@ export default function User(props) {
     )
 }
 
-User.propTypes = {
+UserList.propTypes = {
     userProfile: PropTypes.object
 }

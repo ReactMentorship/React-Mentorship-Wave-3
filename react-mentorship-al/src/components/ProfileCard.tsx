@@ -9,7 +9,7 @@ export default function ProfileCard(props) {
     let nameInitials = props.name.replace(/[a-z]/g,'').replace(' ','');
     return (
         <>
-            <Grid container spacing={1}>
+            <Grid container sx={{ mt: 2, width: 500 }}>
                 <Grid item xs={12} style={{ justifyContent: "center", display: "flex" }}>
                     <Avatar sx={{ width: 130, height: 130 }}>
                         <Typography variant="h2">{nameInitials}</Typography>
@@ -20,7 +20,7 @@ export default function ProfileCard(props) {
                 </Grid>
             </Grid>
             <div style={{ justifyContent: "center", display: "flex" }}>
-                <Card sx={{width: 400}}>
+                <Card sx={{width: 450}}>
                     <CardContent>
                         <Typography variant="h5">Information</Typography>
                         <Typography variant="body1">Email: {props.email}</Typography>
