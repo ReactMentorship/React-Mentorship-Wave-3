@@ -6,7 +6,9 @@ import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 
 export default function ProfileCard(props) {
-    let nameInitials = props.name.replace(/[a-z]/g,'').replace(' ','');
+    const user = props.user;
+    const nameInitials = user.name.replace(/[a-z]/g,'').replace(' ','');
+
     return (
         <>
             <Grid container sx={{ mt: 2, width: 500 }}>
@@ -16,16 +18,16 @@ export default function ProfileCard(props) {
                     </Avatar>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant="h3">{props.name}</Typography>
+                    <Typography variant="h3">{user.name}</Typography>
                 </Grid>
             </Grid>
             <div style={{ justifyContent: "center", display: "flex" }}>
                 <Card sx={{width: 450}}>
                     <CardContent>
                         <Typography variant="h5">Information</Typography>
-                        <Typography variant="body1">Email: {props.email}</Typography>
-                        <Typography variant="body1">Phone: {props.phone}</Typography>
-                        <Typography variant="body1">Address: {props.address}</Typography>
+                        <Typography variant="body1">Email: {user.email}</Typography>
+                        <Typography variant="body1">Phone: {user.phone}</Typography>
+                        <Typography variant="body1">Address: {user.address}</Typography>
                     </CardContent>
                 </Card>
             </div>
