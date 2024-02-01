@@ -1,14 +1,24 @@
 import ProfileCard from './ProfileCard';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UsersContext } from './../App';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 export default function UserProfile() {
-    const {currentUser} = useContext(UsersContext);
+    const { usersList, currentUser, setCurrentUser } = useContext(UsersContext);
+    let { id } = useParams();
 
+    useEffect(()=>{
+        if(Object.keys(usersList).length > 0 && Object.keys(currentUser).length == 0){
+            setCurrentUser(usersList[id]);
+        }
+    }, [usersList]);
     return(
         <>
-            <ProfileCard user={currentUser}></ProfileCard>
+            {Object.keys(currentUser).length > 0
+                ?<ProfileCard user={currentUser}></ProfileCard>
+                :<p>User info is not available.</p>
+            }
         </>
     );
 }
