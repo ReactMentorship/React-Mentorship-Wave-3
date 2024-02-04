@@ -1,11 +1,42 @@
 import Avatar from '@mui/material/Avatar';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
-function UserList({UserList}) {
+function UserList({userData}) {
     return (
         <>
-            <div className="user-list">
-                User List works!
-            </div>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Email</TableCell>
+                        <TableCell>Phone</TableCell>
+                        <TableCell>Address</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {userData.map((row) => (
+                        <TableRow
+                          key={row.name}
+                          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                          <TableCell component="th" scope="row">
+                            {row.name}
+                          </TableCell>
+                          <TableCell>{row.email}</TableCell>
+                          <TableCell>{row.phone}</TableCell>
+                          <TableCell>{row.address}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>                    
+                </Table>
+            </TableContainer>
         </>
     )
 }
