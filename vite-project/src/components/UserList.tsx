@@ -1,4 +1,6 @@
-import Avatar from '@mui/material/Avatar';
+import { useContext } from "react";
+import { UsersContext } from './../App';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +9,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function UserList({userData}) {
+function UserList() {
+
+    const {users, setUsers} = useContext(UsersContext);
+    
     return (
         <>
             <TableContainer component={Paper}>
@@ -21,7 +26,7 @@ function UserList({userData}) {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {userData.map((row) => (
+                      {users.map((row) => (
                         <TableRow
                           key={row.name}
                           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -37,7 +42,7 @@ function UserList({userData}) {
                     </TableBody>                    
                 </Table>
             </TableContainer>
-        </>
+        </>    
     )
 }
 export default UserList
