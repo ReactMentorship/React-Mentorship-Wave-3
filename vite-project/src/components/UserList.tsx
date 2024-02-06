@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UsersContext } from './../App';
+import { useNavigate } from "react-router-dom";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,7 +13,8 @@ import Paper from '@mui/material/Paper';
 function UserList() {
 
     const {users, setUsers} = useContext(UsersContext);
-    
+    const navigate = useNavigate();
+
     return (
         <>
             <TableContainer component={Paper}>
@@ -28,6 +30,7 @@ function UserList() {
                     <TableBody>
                       {users.map((row) => (
                         <TableRow
+                          onClick={ () => userDetail(row.id)}
                           key={row.name}
                           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
@@ -44,5 +47,9 @@ function UserList() {
             </TableContainer>
         </>    
     )
+
+    function userDetail(userId){
+      navigate("/user/" + userId);
+    }
 }
 export default UserList
