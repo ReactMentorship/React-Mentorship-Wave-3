@@ -9,20 +9,22 @@ export const UsersContext = createContext();
 
 export default function App() {
   
-  const list = [
-    { 
-      id:23,
-      name: 'Amador Santiago', 
-      email: 'amador@example.com', 
-      phone: 81123456789, 
-      address: '21 Main Street, Monterrey Nuevo León, CP65343'
-    }
-  ]
+  let list = []
 
   const [users, setUsers] = useState([]);
+
+  const API_URL = 'https://randomuser.me/api/?results=10'
   
-  useEffect(()=>{
-      setUsers(list);
+  useEffect(() => {
+
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(data =>  {
+        list = data.results;
+        console.log(list)
+        setUsers(list);
+      })
+      .catch(error => console.error(error));
   },[]);
 
   return (

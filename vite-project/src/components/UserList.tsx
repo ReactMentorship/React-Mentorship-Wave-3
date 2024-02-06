@@ -30,16 +30,16 @@ function UserList() {
                     <TableBody>
                       {users.map((row) => (
                         <TableRow
-                          onClick={ () => userDetail(row.id)}
-                          key={row.name}
+                          onClick={ () => userDetail(row.login.uuid, row)}
+                          key={row.cell}
                           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                           <TableCell component="th" scope="row">
-                            {row.name}
+                            {row.name.first}
                           </TableCell>
                           <TableCell>{row.email}</TableCell>
                           <TableCell>{row.phone}</TableCell>
-                          <TableCell>{row.address}</TableCell>
+                          <TableCell>{row.location.city}, {row.location.state}, {row.location.country}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>                    
@@ -48,8 +48,8 @@ function UserList() {
         </>    
     )
 
-    function userDetail(userId){
-      navigate("/user/" + userId);
+    function userDetail(userId, user){
+      navigate(`/user/${userId}`, {state:  user });
     }
 }
 export default UserList
