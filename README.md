@@ -26,7 +26,7 @@ Vite requires Node.js version 14.18+, 16+
 
 ________________________________________________________________________________
 
-Week 1 (due Nov 3, EOD)
+Week 1 (due Jan 19, EOD)
 
 ACT 1:
 Initiate react project with Vite
@@ -58,7 +58,7 @@ Utilizing JSX apply conditional rendering from a variable/const
 
 ________________________________________________________________________________
 
-Week 2 (due Nov 10, EOD)
+Week 2 (due Jan 26, EOD)
 
 ACT 6:
 Convert the User object you had into an array, pass this object into the UserList Component as props (in case you don't have that component create it).
@@ -74,7 +74,7 @@ Using useContext send the users list and setter to the UserList Component so tha
 
 ________________________________________________________________________________
 
-Week 3 (due Nov 17, EOD)
+Week 3 (due Feb 2, EOD)
 
 ACT 10: 
 Using React Router create dynamic routes for your users, passing the id as params in the URL, set the UserList component as home.
